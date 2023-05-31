@@ -22,6 +22,6 @@ public class CameraController : MonoBehaviour
     public void Move(float x, float y)
     {
         var o = gameObject;
-        o.transform.position = new Vector3(x, y, o.transform.position.z);
+        // o.transform.position = new Vector3(x, y, o.transform.position.z);
     }
 }
