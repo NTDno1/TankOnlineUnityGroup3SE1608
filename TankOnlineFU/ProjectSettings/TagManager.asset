@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - bullet
   - bulletEnemy
+  - trees
+  - wall_brick
+  - wall_steel
   layers:
   - Default
   - TransparentFX

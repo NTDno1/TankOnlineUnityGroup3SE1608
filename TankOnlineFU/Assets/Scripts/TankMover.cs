@@ -9,15 +9,19 @@ public class TankMover : MonoBehaviour
     // Start is called before the first frame update
 
     public float speed;
-
+    // public Collider2D trees;
     void Start()
     {
         speed = 1;
+        // trees = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(trees.name);  
+         Vector3 currentPosition = transform.position;
+        currentPosition.z = 0f; 
     }
 
 
@@ -44,5 +48,13 @@ public class TankMover : MonoBehaviour
 
         gameObject.transform.position = currentPos;
         return currentPos;
+    }
+     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("trees"))
+        {
+            // Xử lý khi có va chạm với đối tượng có tag là "Enemy"
+            Debug.Log("Đã xảy ra va chạm với đối tượng Enemy");
+        }
     }
 }

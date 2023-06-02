@@ -9,10 +9,14 @@ public class BulletController : MonoBehaviour
     public Bullet Bullet { get; set; }
 
     public int MaxRange { get; set; }
+    public GameObject anim;
 
     // Start is called before the first frame update
     private void Start()
     {
+        // anim = GetComponent<Animator>();
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.isTrigger = true;
     }
 
     // Update is called once per frame
@@ -57,6 +61,23 @@ public class BulletController : MonoBehaviour
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //bullet1
+        if (collision.CompareTag("wall_brick"))
+        {
+            GameObject exp = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+            Destroy(exp, 0.3f);
+        }
+        if (collision.CompareTag("wall_steel"))
+        {
+            Destroy(this.gameObject);
+            GameObject exp = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
+            Destroy(exp, 0.3f);
         }
     }
 }
