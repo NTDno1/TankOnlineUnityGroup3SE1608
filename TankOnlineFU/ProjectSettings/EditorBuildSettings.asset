@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ContructionSence.unity
     guid: 4909b810f00d5584ea3e170250d1a7e6
+  - enabled: 1
+    path: Assets/Scenes/TestMap.unity
+    guid: 91413a4b53581a84d93150c55a902d76
   m_configObjects: {}
