@@ -18,13 +18,19 @@ public class MenuEvent : MonoBehaviour
 
     public void Contruction()
     {
-        SceneManager.LoadScene("ContructionSence");
+        SceneManager.LoadScene("TestMap");
     }
 
     public void ReStartGame()
     {
-        Time.timeScale = 1f;
+       
         SceneManager.LoadScene("Character");
+    }
+
+    public void BackMenu()
+    {
+        
+        SceneManager.LoadScene("MenuSence");
     }
 
     public void ShowGameoverPanel(bool isShow)
