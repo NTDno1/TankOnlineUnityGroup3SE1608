@@ -10,6 +10,7 @@ TagManager:
   - trees
   - wall_brick
   - wall_steel
+  - material
   layers:
   - Default
   - TransparentFX
