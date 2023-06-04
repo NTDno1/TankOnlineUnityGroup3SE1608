@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -24,17 +24,18 @@ public class LoadSaveGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         saveButton.onClick.AddListener(SaveMap);
         playButton.onClick.AddListener(PlayGame);
         exitButton.onClick.AddListener(BackMenu);
 
 
-        if (checkFileExist(filePath))
+        if (CheckFileExist(filePath))
         {
             FileInfo fileInfo = new FileInfo(filePath);
             if (fileInfo.Length > 0)
             {
-                saveButton.enabled = false;
+                saveButton.enabled = true;
 
             }
             else
@@ -57,18 +58,27 @@ public class LoadSaveGame : MonoBehaviour
 
     void SaveMap()
     {
-        GameObject[] finishObjects = GameObject.FindGameObjectsWithTag("material");
+        GameObject[] treeObjects = GameObject.FindGameObjectsWithTag("trees");
+        GameObject[] wall_brickObjects = GameObject.FindGameObjectsWithTag("wall_brick");
+        GameObject[] wall_steel = GameObject.FindGameObjectsWithTag("wall_steel");
+        GameObject[] water = GameObject.FindGameObjectsWithTag("water");
 
+        List<GameObject> finishObjects = new List<GameObject>();
+        finishObjects.AddRange(treeObjects);
+        finishObjects.AddRange(wall_brickObjects);
+        finishObjects.AddRange(wall_steel);
+        finishObjects.AddRange(water);
         string text = "";
         foreach (GameObject obj in finishObjects)
         {
-            text += obj.transform.position.x + "|" + obj.transform.position.y + "|" + obj.transform.localScale.x + "\n";
+            text += obj.transform.position.x + "|" + obj.transform.position.y + "|" + obj.tag + "\n";
         }
 
-        if (checkFileExist(filePath))
+        if (CheckFileExist(filePath))
         {
             StreamWriter writer = File.AppendText(filePath);
             writer.WriteLine(text);
+            Debug.Log("da luu map");
             writer.Close();
         }
         else
@@ -77,10 +87,22 @@ public class LoadSaveGame : MonoBehaviour
         }
 
     }
-
-    void PlayGame()
+    public void PlayGame()
     {
-        if (checkFileExist(filePath))
+        SceneManager.LoadSceneAsync("SampleScene");
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "SampleScene")
+        {
+            LoadDataAndCreateObjects();
+        }
+    }
+
+    private void LoadDataAndCreateObjects()
+    {
+        if (CheckFileExist(filePath))
         {
             string content = File.ReadAllText(filePath);
             string[] lstCircle = content.Split('\n');
@@ -89,38 +111,39 @@ public class LoadSaveGame : MonoBehaviour
                 if (!string.IsNullOrWhiteSpace(lstCircle[i]))
                 {
                     string[] lstProperties = lstCircle[i].Split("|");
-                    GameObject newObject = Instantiate(Wall_brick, new Vector2(float.Parse(lstProperties[0]), float.Parse(lstProperties[1])), Quaternion.identity);
-                    newObject.transform.localScale = new Vector3(float.Parse(lstProperties[2]), float.Parse(lstProperties[2]), 1f);
+                    Vector2 position = new Vector2(float.Parse(lstProperties[0]), float.Parse(lstProperties[1]));
+                    string tag = lstProperties[2];
+
+                    GameObject prefab = null;
+                    switch (tag)
+                    {
+                        case "trees":
+                            prefab = Tree;
+                            break;
+                        case "wall_brick":
+                            prefab = Wall_brick;
+                            break;
+                        case "wall_steel":
+                            prefab = Wall_steel;
+                            break;
+                        case "water":
+                            prefab = Water;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (prefab != null)
+                    {
+                        GameObject newObject = Instantiate(prefab, position, Quaternion.identity);
+                        //newObject.transform.localScale = new Vector3(float.Parse(lstProperties[3]), float.Parse(lstProperties[3]), 1f);
+                    }
                 }
             }
         }
     }
 
-    //void playBall()
-    //{
-    //    spawner.SetActive(true);
-    //    {
-    //        try
-    //        {
-    //            GameObject[] finishObjects = GameObject.FindGameObjectsWithTag("Finish");
-    //            foreach (GameObject obj in finishObjects)
-    //            {
-    //                Destroy(obj);
-    //            }
-
-    //            using (StreamWriter writer = new StreamWriter(filePath, false))
-    //            {
-    //                writer.Write("");
-    //            }
-    //        }
-    //        catch (FileNotFoundException)
-    //        {
-    //            Debug.LogWarning($"Khong tim thay file {filePath}");
-    //        }
-    //    }
-    //}
-
-    bool checkFileExist(string path)
+    bool CheckFileExist(string path)
     {
         if (File.Exists(path))
         {
