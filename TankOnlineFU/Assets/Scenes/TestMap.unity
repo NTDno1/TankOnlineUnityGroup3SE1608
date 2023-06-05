@@ -555,6 +555,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 13bdef6e50b2c4a339bafdc7f7f58ff4, type: 3}
     - target: {fileID: 878647671969593021, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878647671969593021, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
       propertyPath: tankRight
       value: 
       objectReference: {fileID: 21300000, guid: f59f1eac0661d4c9ba950e0e5d444b6d, type: 3}
@@ -606,14 +610,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4069909194320996578, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3574195170675197447, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
+    - {fileID: 4069909194320996578, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2751170101793926180, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 489995786}
+    - targetCorrespondingSourceObject: {fileID: 2751170101793926180, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 489995794}
   m_SourcePrefab: {fileID: 100100000, guid: ec31db2825de7c941bb5c2b27f93eeeb, type: 3}
 --- !u!1 &489995785 stripped
 GameObject:
@@ -638,6 +650,25 @@ MonoBehaviour:
   WallSteel: {fileID: 4560437481752989198, guid: 0c24f7459136bf2479dbbcf4923c220e, type: 3}
   delay: 1
   lastBuild: 0
+--- !u!114 &489995794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489995785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deabfd0959334704690e81a883bf2b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  tankUp: {fileID: 21300000, guid: c2500d85418f749429defd72247fa182, type: 3}
+  tankDown: {fileID: 21300000, guid: 5961b410be50c40db80d4336eb9ba4f6, type: 3}
+  tankLeft: {fileID: 21300000, guid: 13bdef6e50b2c4a339bafdc7f7f58ff4, type: 3}
+  tankRight: {fileID: 21300000, guid: f59f1eac0661d4c9ba950e0e5d444b6d, type: 3}
+  camera: {fileID: 1796586382}
+  materialEnums: 
 --- !u!1 &522931643
 GameObject:
   m_ObjectHideFlags: 0
