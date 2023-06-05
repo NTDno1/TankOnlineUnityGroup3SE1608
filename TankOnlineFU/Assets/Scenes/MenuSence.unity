@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 1627418509}
   - component: {fileID: 1627418508}
   m_Layer: 5
-  m_Name: CcontructorButton
+  m_Name: ContructorButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
