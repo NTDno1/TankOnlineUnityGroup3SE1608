@@ -13,7 +13,7 @@ public class MenuEvent : MonoBehaviour
     public Button exitPanel;
     public void Play()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("DefaultMap");
     }
 
     public void Contruction()

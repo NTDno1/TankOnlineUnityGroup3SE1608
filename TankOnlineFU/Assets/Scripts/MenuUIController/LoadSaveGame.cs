@@ -36,9 +36,10 @@ public class LoadSaveGame : MonoBehaviour
             if (fileInfo.Length > 0)
             {
                 saveButton.enabled = true;
+                playButton.enabled = true;
 
             }
-            else
+            else 
             {
                 playButton.enabled = false;
             }
@@ -76,10 +77,15 @@ public class LoadSaveGame : MonoBehaviour
 
         if (CheckFileExist(filePath))
         {
-            StreamWriter writer = File.AppendText(filePath);
-            writer.WriteLine(text);
-            Debug.Log("da luu map");
-            writer.Close();
+            // Xóa nội dung hiện tại của tệp tin
+            File.WriteAllText(filePath, string.Empty);
+
+            // Ghi dữ liệu mới vào tệp tin
+            using (StreamWriter writer = File.AppendText(filePath))
+            {
+                writer.WriteLine(text);
+                Debug.Log("Map saved successfully.");
+            }
         }
         else
         {
