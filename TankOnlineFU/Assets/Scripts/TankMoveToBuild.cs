@@ -14,7 +14,7 @@ public class TankMoverToBuild : MonoBehaviour
 
     public float speed;
     private float lastMove = 0f;
-    private float delay = 1f;
+    private float delay = 0.2f;
     private Tank _tank;
 
     public Sprite tankUp;
@@ -63,41 +63,41 @@ public class TankMoverToBuild : MonoBehaviour
         // Debug.Log(trees.name);  
         Vector3 currentPosition = transform.position;
         currentPosition.z = 0f;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Moves(Direction.Left);
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKeyUp(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             Moves(Direction.Down);
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKeyUp(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Moves(Direction.Right);
         }
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKeyUp(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             Moves(Direction.Up);
         }
 
-        if (Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Keypad1))
+        if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetKey(KeyCode.Keypad1))
         {
             currentIndex = 0;
         }
-        else if (Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad2))
+        else if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad2))
         {
             currentIndex = 1;
         }
-        else if (Input.GetKey(KeyCode.Alpha3) || Input.GetKey(KeyCode.Keypad3))
+        else if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKey(KeyCode.Keypad3))
         {
             currentIndex = 2;
         }
-        else if (Input.GetKey(KeyCode.Alpha4) || Input.GetKey(KeyCode.Keypad4))
+        else if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetKey(KeyCode.Keypad4))
         {
             currentIndex = 3;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             Build(materialEnums[currentIndex]);
         }

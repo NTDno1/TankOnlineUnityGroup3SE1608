@@ -30,10 +30,6 @@ public class TankBuilder : MonoBehaviour
 
     public void Build(BuildingMaterial material)
     {
-        if (lastBuild + delay > Time.time)
-        {
-            return;
-        }
         var currentPos = gameObject.transform.position;
         GameObject spawnObject = null;
         switch (material.Name)

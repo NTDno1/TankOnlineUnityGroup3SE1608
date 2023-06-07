@@ -89,7 +89,7 @@ public class TankBuildController : MonoBehaviour
             currentIndex = 3;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             Build(materialEnums[currentIndex]);
         }
