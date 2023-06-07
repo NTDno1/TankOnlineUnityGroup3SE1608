@@ -15,7 +15,6 @@ public class TankBuilder : MonoBehaviour
     public GameObject WallBrick;
     public GameObject WallSteel;
     public BuildingMaterial _material;
-    public float delay;
     public float lastBuild = 0f;
 
     // Start is called before the first frame update
