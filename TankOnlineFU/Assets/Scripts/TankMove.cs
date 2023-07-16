@@ -7,58 +7,46 @@ using UnityEngine;
 public class TankMover : MonoBehaviour
 {
     // Start is called before the first frame update
+    // Start is called before the first frame update
 
     public float speed;
-    private float lastMove = 0f;
-    private float delay = 1f;
 
     void Start()
     {
-        speed = 0.4f;
+        speed = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(trees.name);  
-         Vector3 currentPosition = transform.position;
-        currentPosition.z = 0f; 
     }
 
 
     public Vector3 Move(Direction direction)
     {
-        
         var currentPos = gameObject.transform.position;
-        if (lastMove + delay > Time.time)
-        {
-            return currentPos;
-        }
         switch (direction)
         {
-
             case Direction.Down:
-                currentPos.y -= speed;
+                currentPos.y -= speed * Time.deltaTime;
                 break;
             case Direction.Left:
-                currentPos.x -= speed;
+                currentPos.x -= speed * Time.deltaTime;
                 break;
             case Direction.Right:
-                currentPos.x += speed;
+                currentPos.x += speed * Time.deltaTime;
                 break;
             case Direction.Up:
-                currentPos.y += speed;
+                currentPos.y += speed * Time.deltaTime;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
         }
 
         gameObject.transform.position = currentPos;
-        lastMove = Time.time;
-
         return currentPos;
     }
-     private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("trees"))
         {

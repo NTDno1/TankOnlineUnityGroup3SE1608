@@ -8,9 +8,13 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class TankBuildController : MonoBehaviour
+public class TankMoverToBuild : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public float speed;
+    private float lastMove = 0f;
+    private float delay = 0.2f;
     private Tank _tank;
 
     public Sprite tankUp;
@@ -27,8 +31,10 @@ public class TankBuildController : MonoBehaviour
 
 
 
-    private void Start()
+
+    void Start()
     {
+        speed = 0.4f;
         _tank = new Tank
         {
             Name = "Default",
@@ -39,8 +45,8 @@ public class TankBuildController : MonoBehaviour
             Guid = GUID.Generate()
         };
         gameObject.transform.position = _tank.Position;
-        _tankMover = gameObject.GetComponent<TankMover>();
-        _cameraController = camera.GetComponent<CameraController>();
+        //_tankMover = gameObject.GetComponent<TankMover>();
+        // _cameraController = camera.GetComponent<CameraController>();
         _renderer = gameObject.GetComponent<SpriteRenderer>();
         _tankBuilder = gameObject.GetComponent<TankBuilder>();
         currentIndex = 0;
@@ -52,39 +58,41 @@ public class TankBuildController : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        // Debug.Log(trees.name);  
+        Vector3 currentPosition = transform.position;
+        currentPosition.z = 0f;
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            Move(Direction.Left);
+            Moves(Direction.Left);
         }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKeyUp(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            Move(Direction.Down);
+            Moves(Direction.Down);
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKeyUp(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            Move(Direction.Right);
+            Moves(Direction.Right);
         }
-        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKeyUp(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            Move(Direction.Up);
+            Moves(Direction.Up);
         }
 
-        if (Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Keypad1))
+        if (Input.GetKeyUp(KeyCode.Alpha1) || Input.GetKey(KeyCode.Keypad1))
         {
             currentIndex = 0;
         }
-        else if (Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad2))
+        else if (Input.GetKeyUp(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad2))
         {
             currentIndex = 1;
         }
-        else if (Input.GetKey(KeyCode.Alpha3) || Input.GetKey(KeyCode.Keypad3))
+        else if (Input.GetKeyUp(KeyCode.Alpha3) || Input.GetKey(KeyCode.Keypad3))
         {
             currentIndex = 2;
         }
-        else if (Input.GetKey(KeyCode.Alpha4) || Input.GetKey(KeyCode.Keypad4))
+        else if (Input.GetKeyUp(KeyCode.Alpha4) || Input.GetKey(KeyCode.Keypad4))
         {
             currentIndex = 3;
         }
@@ -94,13 +102,12 @@ public class TankBuildController : MonoBehaviour
             Build(materialEnums[currentIndex]);
         }
     }
-
-    private void Move(Direction direction)
+    private void Moves(Direction direction)
     {
         //Debug.Log(_tankMover);
-        _tank.Position = _tankMover.Move(direction);
+        _tank.Position = Move(direction);
         _tank.Direction = direction;
-        /*_cameraController.Move(_tank.Position);*/
+        //_cameraController.Move(_tank.Position);
         _renderer.sprite = direction switch
         {
             Direction.Down => tankDown,
@@ -118,5 +125,36 @@ public class TankBuildController : MonoBehaviour
         _tankBuilder.Build(buildingMaterial);
     }
 
+    public Vector3 Move(Direction direction)
+    {
 
+        var currentPos = gameObject.transform.position;
+        if (lastMove + delay > Time.time)
+        {
+            return currentPos;
+        }
+        switch (direction)
+        {
+
+            case Direction.Down:
+                currentPos.y -= speed;
+                break;
+            case Direction.Left:
+                currentPos.x -= speed;
+                break;
+            case Direction.Right:
+                currentPos.x += speed;
+                break;
+            case Direction.Up:
+                currentPos.y += speed;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
+        }
+
+        gameObject.transform.position = currentPos;
+        lastMove = Time.time;
+
+        return currentPos;
+    }
 }
