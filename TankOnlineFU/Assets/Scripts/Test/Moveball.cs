@@ -21,13 +21,7 @@ public class Moveball : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed * Time.deltaTime;
         transform.Translate(movement);
     }
-// private void OnTriggerEnter2D(Collider2D other)
-//     {
-//         if (other.gameObject.CompareTag("Enemy"))
-//         {
-//           Debug.Log("Đã va chạm");
-//         }
-//     }
+
  private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

@@ -26,7 +26,6 @@ namespace DefaultNamespace
 
         public void Fire(Bullet b)
         {
-            // Debug.Log("FIre: "+Time.time);
             if (lastFire + delay > Time.time)
             {
                 return;

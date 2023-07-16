@@ -15,6 +15,8 @@ public class TankMoverToBuild : MonoBehaviour
     public float speed;
     private float lastMove = 0f;
     private float delay = 0.2f;
+    private float timeActive = 0.5f;
+    private float timeActiveCount;
     private Tank _tank;
 
     public Sprite tankUp;
@@ -29,19 +31,18 @@ public class TankMoverToBuild : MonoBehaviour
     public List<MaterialEnum> materialEnums;
     private int currentIndex;
 
-
-
-
     void Start()
     {
-        speed = 0.4f;
+        timeActiveCount = 0f;
+        speed = 0.3f;
         _tank = new Tank
         {
             Name = "Default",
             Direction = Direction.Down,
             Hp = 10,
             Point = 0,
-            Position = new Vector3(0, 0, 1),
+            Position = new Vector3(0, 0, 0),
+            isActive = true,
             Guid = GUID.Generate()
         };
         gameObject.transform.position = _tank.Position;
@@ -60,7 +61,13 @@ public class TankMoverToBuild : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(trees.name);  
+        timeActiveCount += Time.deltaTime;
+        if (timeActiveCount >= timeActive)
+        {
+            _tank.isActive = !_tank.isActive;
+            _renderer.enabled = _tank.isActive;
+            timeActiveCount -= timeActive;
+        }
         Vector3 currentPosition = transform.position;
         currentPosition.z = 0f;
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -104,10 +111,8 @@ public class TankMoverToBuild : MonoBehaviour
     }
     private void Moves(Direction direction)
     {
-        //Debug.Log(_tankMover);
         _tank.Position = Move(direction);
         _tank.Direction = direction;
-        //_cameraController.Move(_tank.Position);
         _renderer.sprite = direction switch
         {
             Direction.Down => tankDown,
