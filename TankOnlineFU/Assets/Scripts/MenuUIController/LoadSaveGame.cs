@@ -19,7 +19,9 @@ public class LoadSaveGame : MonoBehaviour
     public GameObject Wall_steel;
     public GameObject Water;
     
-    private string filePath = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad.txt";
+    private string filePath1 = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad1.txt";
+    private string filePath2 = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad2.txt";
+    private string filePath3 = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad3.txt";
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,14 @@ public class LoadSaveGame : MonoBehaviour
         playButton.onClick.AddListener(PlayGame);
         exitButton.onClick.AddListener(BackMenu);
 
+        createFile(filePath1);
+        createFile(filePath2);
+        createFile(filePath3);
 
+    }
+
+    public void createFile(string filePath)
+    {
         if (CheckFileExist(filePath))
         {
             FileInfo fileInfo = new FileInfo(filePath);
@@ -39,7 +48,7 @@ public class LoadSaveGame : MonoBehaviour
                 playButton.enabled = true;
 
             }
-            else 
+            else
             {
                 playButton.enabled = false;
             }
@@ -48,7 +57,6 @@ public class LoadSaveGame : MonoBehaviour
         {
             Debug.Log("File does not exist.");
         }
-
     }
 
     // Update is called once per frame
@@ -57,7 +65,7 @@ public class LoadSaveGame : MonoBehaviour
 
     }
 
-    void SaveMap()
+    void SaveMap(string filePath)
     {
         GameObject[] treeObjects = GameObject.FindGameObjectsWithTag("trees");
         GameObject[] wall_brickObjects = GameObject.FindGameObjectsWithTag("wall_brick");
@@ -102,11 +110,11 @@ public class LoadSaveGame : MonoBehaviour
     {
         if (scene.name == "SampleScene")
         {
-            LoadDataAndCreateObjects();
+            LoadDataAndCreateObjects(filePath1);
         }
     }
 
-    private void LoadDataAndCreateObjects()
+    private void LoadDataAndCreateObjects(string filePath)
     {
         if (CheckFileExist(filePath))
         {

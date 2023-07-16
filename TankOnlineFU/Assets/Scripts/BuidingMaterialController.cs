@@ -28,5 +28,6 @@ namespace Assets.Scripts
         {
             buildingMaterial = new BuildingMaterial(materialEnum);
         }
+
     }
 }
