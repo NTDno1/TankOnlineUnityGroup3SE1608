@@ -10,7 +10,7 @@ public class TankMover : MonoBehaviour
     // Start is called before the first frame update
 
     public float speed;
-
+    public bool armor = false;
     void Start()
     {
         speed = 1;
@@ -53,5 +53,14 @@ public class TankMover : MonoBehaviour
             // Xử lý khi có va chạm với đối tượng có tag là "Enemy"
             Debug.Log("Đã xảy ra va chạm với đối tượng Enemy");
         }
+    }
+    public bool getArmor()
+    {
+        return armor;
+    }
+    public bool setArmor(bool value)
+    {
+        armor = value;
+        return armor;
     }
 }
