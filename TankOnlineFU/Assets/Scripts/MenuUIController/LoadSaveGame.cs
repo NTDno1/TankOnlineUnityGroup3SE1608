@@ -27,7 +27,7 @@ public class LoadSaveGame : MonoBehaviour
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        saveButton.onClick.AddListener(SaveMap);
+        // saveButton.onClick.AddListener(SaveMap);
         playButton.onClick.AddListener(PlayGame);
         exitButton.onClick.AddListener(BackMenu);
 

@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        DestroyAfterRange();
+        // DestroyAfterRange();
     }
 
     private void DestroyAfterRange()

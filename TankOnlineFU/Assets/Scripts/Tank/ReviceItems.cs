@@ -30,7 +30,7 @@ public class  ReviceItems : MonoBehaviour
         if (checkArmor == 2)
         {
             GameObject ani = Instantiate(animation, transform.position, Quaternion.identity) as GameObject;
-            Destroy(ani, 0.018f);
+            Destroy(ani, 0.1f);
         }
         if (checkArmor == 3)
         {
