@@ -27,10 +27,9 @@ public class BulletController : MonoBehaviour
 
     private void DestroyAfterRange()
     {
-        Debug.Log(Bullet);
-       var currentPos = gameObject.transform.position;
+        var currentPos = gameObject.transform.position;
         var initPos = Bullet.InitialPosition;
-       
+
         switch (Bullet.Direction)
         {
             case Direction.Down:
@@ -68,18 +67,32 @@ public class BulletController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //bullet1
-        if (collision.CompareTag("wall_brick"))
+        switch (collision.tag)
         {
-            GameObject exp = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
-            Destroy(exp, 0.3f);
-        }
-        if (collision.CompareTag("wall_steel"))
-        {
-            Destroy(this.gameObject);
-            GameObject exp = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
-            Destroy(exp, 0.3f);
+            case "wall_brick":
+                GameObject wallBrick = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
+                Destroy(collision.gameObject);
+                Destroy(this.gameObject);
+                Destroy(wallBrick, 0.3f);
+                break;
+            case "wall_steel":
+                Destroy(this.gameObject);
+                GameObject wallSteel = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
+                Destroy(wallSteel, 0.3f);
+                break;
+            case "Enermy":
+                Debug.Log("vacham enermy");
+                Destroy(gameObject);
+                collision.GetComponent<EnemyController>().BeFired();
+                break;
+            case "Player":
+                if (gameObject.CompareTag("bulletEnemy"))
+                {
+                    Debug.Log("vacham player");
+                    Destroy(gameObject);
+                    collision.GetComponent<TankController>().BeFired();
+                }
+                break;
         }
     }
 }
