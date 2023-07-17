@@ -566,8 +566,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2178223789173475439, guid: bb4ea6636980048bbb8428e63190d6b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1348531008}
   m_SourcePrefab: {fileID: 100100000, guid: bb4ea6636980048bbb8428e63190d6b2, type: 3}
+--- !u!1 &1348531007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2178223789173475439, guid: bb4ea6636980048bbb8428e63190d6b2, type: 3}
+  m_PrefabInstance: {fileID: 1348531006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1348531008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348531007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fccc38519a0a3ba40ba7385e89e3d861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet1: {fileID: 7740309687340280598, guid: 55d77b55c3c7a437ea8d0c1599983c97, type: 3}
+  bullet2: {fileID: 0}
+  bullet3: {fileID: 0}
+  bullet4: {fileID: 0}
+  attackSpeed: 0.2
+  soundGun1: {fileID: 0}
+  soundGun2: {fileID: 0}
+  soundGun3: {fileID: 0}
+  soundGun4: {fileID: 0}
 --- !u!1 &1770037880
 GameObject:
   m_ObjectHideFlags: 0

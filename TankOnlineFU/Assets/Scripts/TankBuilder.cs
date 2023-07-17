@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Assets.Scripts;
 using Assets.Scripts.Entity;
 using Entity;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -30,6 +31,10 @@ public class TankBuilder : MonoBehaviour
     public void Build(BuildingMaterial material)
     {
         var currentPos = gameObject.transform.position;
+        destroyMaterialByTagAndPositon("trees", currentPos);
+        destroyMaterialByTagAndPositon("wall_brick", currentPos);
+        destroyMaterialByTagAndPositon("wall_steel", currentPos);
+        destroyMaterialByTagAndPositon("water", currentPos);
         GameObject spawnObject = null;
         switch (material.Name)
         {
@@ -48,5 +53,19 @@ public class TankBuilder : MonoBehaviour
         }
         lastBuild = Time.time;
         spawnObject.AddComponent<BuidingMaterialController>().buildingMaterial = new BuildingMaterial(material.Name);
+    }
+
+    public void destroyMaterialByTagAndPositon(string tag, Vector3 position)
+    {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag))
+        {
+            Debug.Log(obj);
+            Debug.Log(obj.transform.position);
+            Debug.Log(position);
+            if (obj.transform.position == position)
+            {
+                Destroy(obj);
+            }
+        }
     }
 }

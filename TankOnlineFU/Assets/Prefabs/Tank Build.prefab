@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
@@ -51,12 +52,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1425215670684244316, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2185695495001854551, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
       propertyPath: m_Name
       value: Tank Build
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 658675346, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2185695495001854551, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 878647671969593021}
   m_SourcePrefab: {fileID: 100100000, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
 --- !u!1 &2751170101793926180 stripped
 GameObject:
@@ -75,14 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4343d3cd6bbb638479ba2e30fb493a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trees: {fileID: 21300000, guid: d6e9a34f8ce0945b484dc6d721dd4c61, type: 3}
-  water: {fileID: 21300000, guid: 7be9304d971a44fa08c8909db89c7cac, type: 3}
-  wallBrick: {fileID: 21300000, guid: 587fe822b2c93480d81350bd39aceb22, type: 3}
-  wallSteel: {fileID: 21300000, guid: 8fe24eefa9c1c42879a4084847030539, type: 3}
   tankUp: {fileID: 0}
   tankDown: {fileID: 0}
   tankLeft: {fileID: 0}
   tankRight: {fileID: 0}
   camera: {fileID: 0}
   materialEnums: 
-  currentIndex: 0

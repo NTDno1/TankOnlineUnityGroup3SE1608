@@ -66,7 +66,6 @@ public class TankController : MonoBehaviour
     {
         _tank.Position = _tankMover.Move(direction);
         _tank.Direction = direction;
-        // _cameraController.Move(_tank.Position);
         _renderer.sprite = direction switch
         {
             Direction.Down => tankDown,
