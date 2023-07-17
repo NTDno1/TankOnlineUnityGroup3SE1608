@@ -8918,6 +8918,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 608452601}
+    - target: {fileID: 711902216727361652, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+      propertyPath: bulletPrefablv2
+      value: 
+      objectReference: {fileID: 7740309687340280598, guid: 2729e37aab55fb2438cf321f4777050f, type: 3}
     - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
       propertyPath: m_RootOrder
       value: 8
