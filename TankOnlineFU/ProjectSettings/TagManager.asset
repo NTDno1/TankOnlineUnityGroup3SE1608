@@ -12,6 +12,7 @@ TagManager:
   - wall_steel
   - material
   - water
+  - powerup_grenade
   layers:
   - Default
   - TransparentFX

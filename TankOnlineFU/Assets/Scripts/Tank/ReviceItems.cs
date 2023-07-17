@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class  ReviceItems : MonoBehaviour
+public class ReviceItems : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int checkArmor = 1;
+    public int checkArmor = 1;
     private float timeArmorExit = 0;
     private float timeDlayArmorExit = 4;
     public new GameObject animation;
@@ -14,12 +14,32 @@ public class  ReviceItems : MonoBehaviour
     [Range(0, 10)]
     float speedBlink = 9;
     Renderer ren;
-     TankMover js;
+    TankMover js;
+    //  BulletCon2 bu;
     void Start()
     {
-     js = FindObjectOfType<TankMover>();
+        js = FindObjectOfType<TankMover>();
+        // bu = GetBulletCon2Instance();
     }
-        void Awake()
+    // private BulletCon2 GetBulletCon2Instance()
+    // {
+    //     BulletCon2[] bulletCon2s = FindObjectsOfType<BulletCon2>();
+
+    //     if (bulletCon2s.Length > 0)
+    //     {
+    //         return bulletCon2s[0];
+    //     }
+
+    //     return null;
+    // }
+    // public virtual void ReciveItemBullet(bool armor)
+    // {
+    //     if (bu != null)
+    //     {
+    //         bu.inBullet();
+    //     }
+    // }
+    void Awake()
     {
         ren = GetComponent<Renderer>();
     }
@@ -46,6 +66,7 @@ public class  ReviceItems : MonoBehaviour
                 immortalTime();
             }
         }
+        Debug.Log("đây là js"+ js);
     }
     void immortalTime()
     {
@@ -57,9 +78,15 @@ public class  ReviceItems : MonoBehaviour
         js.setArmor(armor);
         checkArmor = 2;
     }
+    public virtual void ReciveItemBullet(bool armor)
+    {
+        if(js != null){
+        js.setBu();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("bulletEnemy"))
         {
             if (checkArmor == 2 || checkArmor == 3)
             {
@@ -71,5 +98,10 @@ public class  ReviceItems : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+        if (other.gameObject.CompareTag("powerup_grenade"))
+        {
+
+        }
     }
+
 }

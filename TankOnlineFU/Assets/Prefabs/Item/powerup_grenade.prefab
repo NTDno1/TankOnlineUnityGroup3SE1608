@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: -2103820180683953927}
   - component: {fileID: -7706727044655823981}
   - component: {fileID: -4684475774030108887}
+  - component: {fileID: -6241245690193856327}
+  - component: {fileID: 8176240904889313075}
   m_Layer: 0
   m_Name: powerup_grenade
-  m_TagString: Untagged
+  m_TagString: powerup_grenade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,3 +173,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f9c9fe0bc074447b1aaa3af3041645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6241245690193856327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6932995843288611291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae141c8a7b966f846a20de19e63a13a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8176240904889313075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6932995843288611291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d8e633de855de42b1db12f97c598d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRunning: 0
+  isFinish: 0
+  elapseTime: 0
+  arlarmTime: 0

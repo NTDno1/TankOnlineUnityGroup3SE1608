@@ -5,7 +5,7 @@ namespace Entity
 {
 
 
-    public class Tank
+    public  class Tank 
     {
         public Direction Direction { get; set; }
         public string Name { get; set; }

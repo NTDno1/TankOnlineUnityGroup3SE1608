@@ -3,11 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Entity;
 using UnityEngine;
-
-public class BulletController : MonoBehaviour
+public class BulletConTrollers : MonoBehaviour
 {
-
-    public Bullet Bullet { get; set; }
+     public Bullet Bullet { get; set; }
 
     public int MaxRange { get; set; }
 
@@ -82,16 +80,8 @@ public class BulletController : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameObject exp = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
-            if (Bullet != null)
-            {
-                if (Bullet.bulletStatus == true)
-                {
-                    Destroy(collision.gameObject);
-                }
-            }
+            Destroy(collision.gameObject);
             Destroy(exp, 0.3f);
         }
     }
-
-
 }
