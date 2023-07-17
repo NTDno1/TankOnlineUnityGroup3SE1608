@@ -18,7 +18,7 @@ public class MenuEvent : MonoBehaviour
 
     public void Contruction()
     {
-        SceneManager.LoadScene("TestMap");
+        SceneManager.LoadScene("CreateMap");
     }
 
     public void ReStartGame()
