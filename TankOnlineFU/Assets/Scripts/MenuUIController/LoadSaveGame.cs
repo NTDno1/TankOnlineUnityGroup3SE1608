@@ -19,44 +19,43 @@ public class LoadSaveGame : MonoBehaviour
     public GameObject Wall_steel;
     public GameObject Water;
     
-    private string filePath1 = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad1.txt";
-    private string filePath2 = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad2.txt";
-    private string filePath3 = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad3.txt";
+    private string filePath1 = "C:\\Users\\congg\\OneDrive\\Desktop\\SaveLoad.txt";
+    
 
     // Start is called before the first frame update
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        // saveButton.onClick.AddListener(SaveMap);
-        playButton.onClick.AddListener(PlayGame);
-        exitButton.onClick.AddListener(BackMenu);
+       
+        //playButton.onClick.AddListener(PlayGame);
+        //exitButton.onClick.AddListener(BackMenu);
 
         createFile(filePath1);
-        createFile(filePath2);
-        createFile(filePath3);
+     
 
     }
 
     public void createFile(string filePath)
     {
-        if (CheckFileExist(filePath))
-        {
-            FileInfo fileInfo = new FileInfo(filePath);
-            if (fileInfo.Length > 0)
-            {
-                saveButton.enabled = true;
-                playButton.enabled = true;
+        FileInfo fileInfo = new FileInfo(filePath);
+        //if (CheckFileExist(filePath))
+        //{
+        //    FileInfo fileInfo = new FileInfo(filePath);
+        //    if (fileInfo.Length > 0)
+        //    {
+        //        saveButton.enabled = true;
 
-            }
-            else
-            {
-                playButton.enabled = false;
-            }
-        }
-        else
-        {
-            Debug.Log("File does not exist.");
-        }
+
+        //    }
+        //    else
+        //    {
+        //        playButton.enabled = false;
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.Log("File does not exist.");
+        //}
     }
 
     // Update is called once per frame
@@ -65,7 +64,7 @@ public class LoadSaveGame : MonoBehaviour
 
     }
 
-    void SaveMap(string filePath)
+    public void SaveMap(string filePath)
     {
         GameObject[] treeObjects = GameObject.FindGameObjectsWithTag("trees");
         GameObject[] wall_brickObjects = GameObject.FindGameObjectsWithTag("wall_brick");

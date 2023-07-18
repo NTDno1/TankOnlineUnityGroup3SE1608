@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5217923038179803137}
   - component: {fileID: 621734833797672243}
   - component: {fileID: 8247087170990612009}
-  - component: {fileID: 4970112937229174907}
+  - component: {fileID: 8223118324587531149}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1104279190621613927
 SpriteRenderer:
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00239706, y: 0.009588256}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2178223789173475439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fccc38519a0a3ba40ba7385e89e3d861, type: 3}
   m_Name: 
@@ -190,7 +190,7 @@ MonoBehaviour:
   bulletSpeed: 12
   attackSpeed: 0.2
   soundGun1: {fileID: 0}
---- !u!114 &4970112937229174907
+--- !u!114 &8223118324587531149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,10 +199,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2178223789173475439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2f67c8cd443f1458db62d83ffd4afc, type: 3}
+  m_Script: {fileID: 11500000, guid: f4d8e633de855de42b1db12f97c598d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isRunning: 0
   isFinish: 0
   elapseTime: 0
-  alarmTime: 0
+  arlarmTime: 0
