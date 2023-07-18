@@ -50,13 +50,8 @@ public class TankMover : MonoBehaviour
         gameObject.transform.position = currentPos;
         return currentPos;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("trees"))
-        {
-        }
-    }
-    public void setBu(){
+
+   /* public void setBu(){
         bullets = true;
     }
     public bool getArmor()
@@ -76,5 +71,5 @@ public class TankMover : MonoBehaviour
     {
         bullets = value;
         return bullets;
-    }
+    }*/
 }

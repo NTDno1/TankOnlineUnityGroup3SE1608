@@ -22,11 +22,13 @@ public class TankController : MonoBehaviour
     {
         _tank = new Tank
         {
-            Name = "Default",
+            Name = "Player",
             Direction = Direction.Down,
-            Hp = 10,
+            Hp = 1,
             Point = 0,
             Position = new Vector3(-0.933f,-4.305f, 0),
+            IsHaveArmor = false,
+            IsUpgradeBullet = false,
             Guid = GUID.Generate()
         };
         gameObject.transform.position = _tank.Position;
@@ -83,18 +85,40 @@ public class TankController : MonoBehaviour
         {
             Direction = _tank.Direction,
             Tank = _tank,
-            InitialPosition = _tank.Position
+            InitialPosition = _tank.Position,
+            bulletLv = _tank.IsUpgradeBullet ? 2 : 1
         };
-        GetComponent<TankFirer>().Fire(b);
+        GetComponent<TankFirer>().Fire(b, _tank);
     }
 
     public void BeFired()
     {
-        _tank.Hp -= 1;
-        if (_tank.Hp < 0 )
+        if (_tank.IsHaveArmor)
         {
-            Destroy(gameObject);
+            _tank.IsHaveArmor = false;
+        }
+        else
+        {
+            _tank.Hp -= 1;
+            if (_tank.Hp < 1)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
+    public void UpgradeBullet()
+    {
+        _tank.IsUpgradeBullet = true;
+    }
+
+    public void GainArmor()
+    {
+        _tank.IsHaveArmor = true;
+    }
+
+    private void OnDestroy()
+    {
+        Time.timeScale = 0;
+    }
 }

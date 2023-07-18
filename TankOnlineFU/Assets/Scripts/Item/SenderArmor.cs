@@ -25,8 +25,7 @@ public class SenderArmor : MonoBehaviour
      private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Player")){
             // soundArmor.Play();
-            ReviceItems ri = other.GetComponent<ReviceItems>();
-            ri.ReciveItemArmor(true); 
+            other.GetComponent<TankController>().GainArmor();
             Destroy(gameObject, 0.4f);
         }
     }

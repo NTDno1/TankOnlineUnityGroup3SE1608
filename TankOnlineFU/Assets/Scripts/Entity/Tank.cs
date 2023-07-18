@@ -5,12 +5,14 @@ namespace Entity
 {
 
 
-    public  class Tank 
+    public class Tank
     {
         public Direction Direction { get; set; }
         public string Name { get; set; }
         public int Point { get; set; }
         public int Hp { get; set; }
+        public bool IsUpgradeBullet { get; set; }
+        public bool IsHaveArmor { get; set; }
 
         public GUID Guid { get; set; }
         public Vector3 Position { get; set; }

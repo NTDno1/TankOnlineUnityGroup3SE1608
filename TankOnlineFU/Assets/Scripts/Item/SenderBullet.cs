@@ -31,8 +31,7 @@ public class SenderBullet : MonoBehaviour
             // bu.setBulletStatus(1);
             // bu.setBulletStatus(1);
             // Destroy(gameObject, 0.4f);
-            ReviceItems ri = other.GetComponent<ReviceItems>();
-            ri.ReciveItemBullet(true); 
+            other.GetComponent<TankController>().UpgradeBullet();
             Destroy(gameObject, 0.4f);
         }
     }

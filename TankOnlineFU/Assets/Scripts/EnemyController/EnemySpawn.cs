@@ -6,6 +6,7 @@ public class EnemySpawn : MonoBehaviour
 {
     public GameObject Enemy;
     Timer timer;
+    private EnemyController enemyController;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +44,11 @@ public class EnemySpawn : MonoBehaviour
 
         if (Random.Range(0, 2) == 0)
         {
-            spawnPos = new Vector2(-7.1f, 4);
+            spawnPos = new Vector2(-3f, 4);
         }
         else
         {
-            spawnPos = new Vector2(7.2f, 4);
+            spawnPos = new Vector2(3f, 4);
         }
 
         GameObject obj = Instantiate(Enemy, spawnPos, Quaternion.identity);

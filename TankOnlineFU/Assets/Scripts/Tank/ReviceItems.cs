@@ -62,13 +62,13 @@ public class ReviceItems : MonoBehaviour
             }
             else
             {
-                this.timeArmorExit = 0;
-                immortalTime();
+                //this.timeArmorExit = 0;
+                //immortalTime();
             }
         }
         //Debug.Log("đây là js"+ js);
     }
-    void immortalTime()
+/*    void immortalTime()
     {
         ReciveItemArmor(false);
         checkArmor = 1;
@@ -83,7 +83,7 @@ public class ReviceItems : MonoBehaviour
         if(js != null){
         js.setBu();
         }
-    }
+    }*/
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("bulletEnemy"))
@@ -95,7 +95,7 @@ public class ReviceItems : MonoBehaviour
             else
             {
                 //end game ở đây
-                Time.timeScale = 0;
+                //Time.timeScale = 0;
             }
         }
         if (other.gameObject.CompareTag("powerup_grenade"))

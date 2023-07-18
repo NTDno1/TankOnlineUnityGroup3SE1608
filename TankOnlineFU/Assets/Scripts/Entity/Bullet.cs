@@ -10,5 +10,6 @@ namespace Entity
         public Vector3 InitialPosition { get; set; }
         public bool bulletStatus { get; set; }
         public int damge { get; set; }
+        public int bulletLv { get; set; }
     }
 }

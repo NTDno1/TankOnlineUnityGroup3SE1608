@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1104279190621613927}
   - component: {fileID: 1445588235494078850}
   - component: {fileID: 621734833797672243}
-  - component: {fileID: 4970112937229174907}
   - component: {fileID: 5563515243561814951}
   - component: {fileID: 385248682676374050}
   - component: {fileID: 8712062029845428608}
@@ -162,22 +161,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4970112937229174907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178223789173475439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2f67c8cd443f1458db62d83ffd4afc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRunning: 0
-  isFinish: 0
-  elapseTime: 0
-  alarmTime: 0
 --- !u!114 &5563515243561814951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7740309687340280598, guid: 55d77b55c3c7a437ea8d0c1599983c97, type: 3}
+  bulletPrefablv2: {fileID: 0}
   spriteRight: {fileID: 21300000, guid: 97ce0d674edfe418cabcd19ce0f5b6da, type: 3}
   spriteLeft: {fileID: 21300000, guid: 6783b99fa46ad430680016ebeb8ea713, type: 3}
   spriteUp: {fileID: 21300000, guid: 27a8e2e75693e4e69ade2de1a9ac6ce3, type: 3}
@@ -216,6 +200,8 @@ MonoBehaviour:
   maxRange: 10
   delay: 1
   lastFire: 0
+  armor: 0
+  bulletUp: 0
 --- !u!114 &8712062029845428608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +215,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  armor: 0
+  bullets: 0

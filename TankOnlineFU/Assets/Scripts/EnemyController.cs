@@ -20,12 +20,11 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         _tank = new Tank
         {
             Name = "Enemy",
             Direction = Direction.Down,
-            Hp = 5,
+            Hp = 1,
             Point = 1,
             Position = gameObject.transform.position,
             Guid = GUID.Generate()
@@ -40,11 +39,11 @@ public class EnemyController : MonoBehaviour
         Move(_tank.Direction);
         Fire();
     }
-    /*
-        private void EnemyMove()
-        {
-            Move
-        }*/
+
+    public void Spawn(Vector3 position)
+    {
+
+    }
 
     private void Move(Direction direction)
     {
@@ -68,7 +67,7 @@ public class EnemyController : MonoBehaviour
             Tank = _tank,
             InitialPosition = _tank.Position
         };
-        GetComponent<TankFirer>().Fire(b);
+        GetComponent<TankFirer>().Fire(b, _tank);
     }
 
 
@@ -84,13 +83,17 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("wall_steel") || collision.CompareTag("wall_brick") || collision.CompareTag("water"))
+        if (collision.CompareTag("wall_steel") || collision.CompareTag("wall_brick") || collision.CompareTag("water") || collision.CompareTag("Enemy"))
         {
             _tank.Direction += 1;
             if (_tank.Direction > Direction.Right)
             {
                 _tank.Direction = Direction.Up;
             }
+        }
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<TankController>().BeFired();
         }
     }
 
