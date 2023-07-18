@@ -11,7 +11,7 @@ namespace DefaultNamespace
         public Sprite spriteLeft;
         public Sprite spriteUp;
         public Sprite spriteDown;
-        public float speed;
+        public int speed;
         public int maxRange;
         public float delay;
         public float lastFire = 0f;
@@ -30,6 +30,7 @@ namespace DefaultNamespace
             {
                 return;
             }
+
             var bullet = Instantiate(bulletPrefab, b.InitialPosition, Quaternion.identity);
             var sr = bullet.GetComponent<SpriteRenderer>();
             var rigidBody2d = bullet.GetComponent<Rigidbody2D>();
@@ -61,6 +62,7 @@ namespace DefaultNamespace
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
             rigidBody2d.AddForce(force, ForceMode2D.Impulse);
             lastFire = Time.time;
         }

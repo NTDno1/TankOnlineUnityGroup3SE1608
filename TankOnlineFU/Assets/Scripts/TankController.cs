@@ -86,14 +86,4 @@ public class TankController : MonoBehaviour
         };
         GetComponent<TankFirer>().Fire(b);
     }
-
-    public void BeFired()
-    {
-        _tank.Hp -= 1;
-        if (_tank.Hp < 0 )
-        {
-            Destroy(gameObject);
-        }
-    }
-
 }
