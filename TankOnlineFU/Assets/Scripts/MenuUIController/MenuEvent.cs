@@ -9,8 +9,8 @@ public class MenuEvent : MonoBehaviour
 {
     public GameObject gameoverPanel;
     public GameObject pausePanel;
-    public Button playPanel;
-    public Button exitPanel;
+    Button playPanel;
+    Button exitPanel;
     public void Play()
     {
         SceneManager.LoadScene("DefaultMap");
@@ -38,7 +38,7 @@ public class MenuEvent : MonoBehaviour
         gameoverPanel.SetActive(isShow);
     }
 
-    public void ReplayPanel()
+    public void PausePanel()
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
@@ -50,9 +50,9 @@ public class MenuEvent : MonoBehaviour
         pausePanel.SetActive(false);
     }
 
-    public void ExitPanel(int index)
+    public void ExitPanel()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("menuUI");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MenuSence");
     }
 }

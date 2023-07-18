@@ -43,11 +43,11 @@ public class EnemySpawn : MonoBehaviour
 
         if (Random.Range(0, 2) == 0)
         {
-            spawnPos = new Vector2(-8.8f, 4);
+            spawnPos = new Vector2(-7.1f, 4);
         }
         else
         {
-            spawnPos = new Vector2(8.8f, 4);
+            spawnPos = new Vector2(7.2f, 4);
         }
 
         GameObject obj = Instantiate(Enemy, spawnPos, Quaternion.identity);
