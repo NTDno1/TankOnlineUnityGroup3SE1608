@@ -60,7 +60,7 @@ public class TankController : MonoBehaviour
         {
             Fire();
         }
-         Debug.Log("đây là vị trí của nhân vật"+ transform.position);
+ 
     }
 
     private void Move(Direction direction)
