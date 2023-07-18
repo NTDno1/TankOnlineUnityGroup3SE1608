@@ -10,10 +10,14 @@ public class TankMover : MonoBehaviour
     // Start is called before the first frame update
 
     public float speed;
-
+    public bool armor = false;
+    public bool bullets; 
+    public Bullet bullet ;
     void Start()
     {
         speed = 1;
+        bullets = false;
+
     }
 
     // Update is called once per frame
@@ -50,8 +54,27 @@ public class TankMover : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("trees"))
         {
-            // Xử lý khi có va chạm với đối tượng có tag là "Enemy"
-            Debug.Log("Đã xảy ra va chạm với đối tượng Enemy");
         }
+    }
+    public void setBu(){
+        bullets = true;
+    }
+    public bool getArmor()
+    {
+        return armor;
+    }
+    public bool setArmor(bool value)
+    {
+        armor = value;
+        return armor;
+    }
+        public bool getBullets()
+    {
+        return bullets;
+    }
+    public bool setBullets(bool value)
+    {
+        bullets = value;
+        return bullets;
     }
 }

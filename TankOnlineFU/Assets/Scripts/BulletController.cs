@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+
     public Bullet Bullet { get; set; }
 
     public int MaxRange { get; set; }
-    public GameObject anim;
 
+    public GameObject anim;
     // Start is called before the first frame update
     private void Start()
     {
@@ -64,6 +65,7 @@ public class BulletController : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //bullet1
@@ -95,4 +97,6 @@ public class BulletController : MonoBehaviour
                 break;
         }
     }
+
+
 }
