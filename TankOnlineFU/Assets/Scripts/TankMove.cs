@@ -10,13 +10,10 @@ public class TankMover : MonoBehaviour
     // Start is called before the first frame update
 
     public float speed;
-    public bool armor = false;
-    public bool bullets; 
     public Bullet bullet ;
     void Start()
     {
         speed = 1;
-        bullets = false;
 
     }
 
@@ -51,25 +48,4 @@ public class TankMover : MonoBehaviour
         return currentPos;
     }
 
-   /* public void setBu(){
-        bullets = true;
-    }
-    public bool getArmor()
-    {
-        return armor;
-    }
-    public bool setArmor(bool value)
-    {
-        armor = value;
-        return armor;
-    }
-        public bool getBullets()
-    {
-        return bullets;
-    }
-    public bool setBullets(bool value)
-    {
-        bullets = value;
-        return bullets;
-    }*/
 }

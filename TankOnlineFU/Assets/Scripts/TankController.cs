@@ -17,6 +17,8 @@ public class TankController : MonoBehaviour
     private CameraController _cameraController;
     private SpriteRenderer _renderer;
     public new GameObject camera;
+    public bool armor = false;
+    public bool bullets; 
 
     private void Start()
     {
@@ -93,18 +95,20 @@ public class TankController : MonoBehaviour
 
     public void BeFired()
     {
-        if (_tank.IsHaveArmor)
-        {
-            _tank.IsHaveArmor = false;
-        }
-        else
-        {
+        // if (_tank.IsHaveArmor)
+        // {
+        //     _tank.IsHaveArmor = false;
+        // }
+        // else
+        // {
+            if(armor == false){
             _tank.Hp -= 1;
             if (_tank.Hp < 1)
             {
                 Destroy(gameObject);
             }
-        }
+            }
+        // }
     }
 
     public void UpgradeBullet()
@@ -120,5 +124,17 @@ public class TankController : MonoBehaviour
     private void OnDestroy()
     {
         Time.timeScale = 0;
+    }
+        public void setBu(){
+        bullets = true;
+    }
+    public bool getArmor()
+    {
+        return armor;
+    }
+    public bool setArmor(bool value)
+    {
+        armor = value;
+        return armor;
     }
 }

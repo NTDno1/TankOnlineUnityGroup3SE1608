@@ -48,7 +48,7 @@ namespace DefaultNamespace
             }
             var sr = bullet.GetComponent<SpriteRenderer>();
             var rigidBody2d = bullet.GetComponent<Rigidbody2D>();
-            var bulletController = bullet.GetComponent<BulletController>();
+            var bulletController = bullet.GetComponent<BulletConTrollers>();
             bulletController.Bullet = b;
             bulletController.MaxRange = maxRange;
             Vector2 force;

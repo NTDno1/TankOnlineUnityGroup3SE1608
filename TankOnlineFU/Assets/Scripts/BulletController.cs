@@ -82,8 +82,7 @@ public class BulletController : MonoBehaviour
                 GameObject wallSteel = Instantiate(anim, transform.position, Quaternion.identity) as GameObject;
                 Destroy(wallSteel, 0.3f);
                 break;
-            case "Enermy":
-                Debug.Log("vacham enermy");
+            case "Enemy":
                 Destroy(gameObject);
                 collision.GetComponent<EnemyController>().BeFired();
                 break;
