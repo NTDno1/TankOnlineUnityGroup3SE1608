@@ -14,7 +14,7 @@ public class BulletAction : MonoBehaviour
     void Start()
     {
         timers = GetComponent<Timer>();
-        timers.alarmTime = 1f;
+        timers.arlarmTime = 1f;
         timers.StartTime();
     }
 
@@ -28,7 +28,7 @@ public class BulletAction : MonoBehaviour
             // Apply force to the bullet in the forward direction
             bulletRigidbody.AddForce(transform.right * bulletSpeed, ForceMode2D.Impulse);
 
-            timers.alarmTime = 2f;
+            timers.arlarmTime = 2f;
             timers.StartTime();
         }
     }
