@@ -54,8 +54,6 @@ public class TankMover : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("trees"))
         {
-            // Xử lý khi có va chạm với đối tượng có tag là "Enemy"
-            Debug.Log("Đã xảy ra va chạm với đối tượng Enemy");
         }
     }
     public void setBu(){

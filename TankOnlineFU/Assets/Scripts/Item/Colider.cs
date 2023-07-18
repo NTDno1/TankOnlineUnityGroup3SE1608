@@ -19,23 +19,20 @@ public class Colider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("wall_steel"))
         {
-        Debug.Log("đã va chạm");
-            gameObject.transform.position = new Vector2(-30,30);
+        // Debug.Log("đã va chạm");
+            gameObject.transform.position = new Vector2(Random.Range(-6.3f, 6.3f), Random.Range(-4.3f,4.3f));
         }
         if (other.gameObject.CompareTag("wall_brick"))
         {
-        Debug.Log("đã va chạm");
-        gameObject.transform.position = new Vector2(-30,30);
+        gameObject.transform.position = new Vector2(Random.Range(-6.3f, 6.3f), Random.Range(-4.3f,4.3f));
         }
         if (other.gameObject.CompareTag("water"))
         {
-        Debug.Log("đã va chạm");
-        gameObject.transform.position = new Vector2(-30,30);
+        gameObject.transform.position = new Vector2(Random.Range(-6.3f, 6.3f), Random.Range(-4.3f,4.3f));
         }
         if (other.gameObject.CompareTag("trees"))
         {
-        Debug.Log("đã va chạm");
-        gameObject.transform.position = new Vector2(-30,30);
+        gameObject.transform.position = new Vector2(Random.Range(-6.3f, 6.3f), Random.Range(-4.3f,4.3f));
         }
     }
 }

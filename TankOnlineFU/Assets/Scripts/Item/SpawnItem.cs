@@ -44,8 +44,8 @@ public class SpawnItem : MonoBehaviour
                 return;
             }
             GameObject item = Instantiate(this.getItem);
-            item.transform.position = new Vector2(X, Y);
-            timer.arlarmTime = 1;
+            item.transform.position = new Vector2(Random.Range(-6.3f, 6.3f), Random.Range(-4.3f,4.3f));
+            timer.arlarmTime = 15;
             timer.StartTime();
         }
         else return;

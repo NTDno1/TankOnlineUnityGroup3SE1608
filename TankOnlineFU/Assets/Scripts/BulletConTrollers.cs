@@ -22,7 +22,6 @@ public class BulletConTrollers : MonoBehaviour
     private void Update()
     {
         // DestroyAfterRange();
-        Debug.Log("đay là bulet" + Bullet);
     }
 
     private void DestroyAfterRange()
