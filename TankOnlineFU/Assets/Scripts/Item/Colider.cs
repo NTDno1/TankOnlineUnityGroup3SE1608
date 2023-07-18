@@ -20,7 +20,7 @@ public class Colider : MonoBehaviour
         if (other.gameObject.CompareTag("wall_steel"))
         {
         Debug.Log("đã va chạm");
-        gameObject.transform.position = new Vector2(-30,30);
+            gameObject.transform.position = new Vector2(-30,30);
         }
         if (other.gameObject.CompareTag("wall_brick"))
         {

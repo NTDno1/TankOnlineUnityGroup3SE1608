@@ -10,7 +10,7 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         timer = GetComponent<Timer>();
-        timer.alarmTime = 2f;
+        timer.arlarmTime = 2f;
         timer.StartTime();
 
     }
@@ -21,7 +21,7 @@ public class EnemySpawn : MonoBehaviour
         if (timer.isFinish)
         {
             StarSpawn();
-            timer.alarmTime = 3f;
+            timer.arlarmTime = 3f;
             timer.StartTime();
 
         }

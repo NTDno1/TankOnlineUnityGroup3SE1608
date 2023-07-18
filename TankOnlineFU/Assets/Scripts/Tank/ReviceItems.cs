@@ -66,7 +66,7 @@ public class ReviceItems : MonoBehaviour
                 immortalTime();
             }
         }
-        Debug.Log("đây là js"+ js);
+        //Debug.Log("đây là js"+ js);
     }
     void immortalTime()
     {
