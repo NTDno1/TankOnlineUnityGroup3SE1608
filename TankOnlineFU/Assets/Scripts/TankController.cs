@@ -17,7 +17,8 @@ public class TankController : MonoBehaviour
     private CameraController _cameraController;
     private SpriteRenderer _renderer;
     public new GameObject camera;
-
+    public bool armor = false;
+    public bool bullets;
     private void Start()
     {
         _tank = new Tank
@@ -26,7 +27,7 @@ public class TankController : MonoBehaviour
             Direction = Direction.Down,
             Hp = 1,
             Point = 0,
-            Position = new Vector3(-0.933f,-4.305f, 0),
+            Position = new Vector3(-0.933f, -4.305f, 0),
             IsHaveArmor = false,
             IsUpgradeBullet = false,
             Guid = GUID.Generate()
@@ -62,7 +63,7 @@ public class TankController : MonoBehaviour
         {
             Fire();
         }
- 
+
     }
 
     private void Move(Direction direction)
@@ -93,18 +94,21 @@ public class TankController : MonoBehaviour
 
     public void BeFired()
     {
-        if (_tank.IsHaveArmor)
+        // if (_tank.IsHaveArmor)
+        // {
+        //     _tank.IsHaveArmor = false;
+        // }
+        // else
+        // {
+        //     _tank.Hp -= 1;
+        //     if (_tank.Hp < 1)
+        //     {
+        if (armor == false)
         {
-            _tank.IsHaveArmor = false;
+            Destroy(gameObject);
         }
-        else
-        {
-            _tank.Hp -= 1;
-            if (_tank.Hp < 1)
-            {
-                Destroy(gameObject);
-            }
-        }
+        // }
+        // }
     }
 
     public void UpgradeBullet()
@@ -121,4 +125,27 @@ public class TankController : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+    public void setBu()
+    {
+        bullets = true;
+    }
+    public bool getArmor()
+    {
+        return armor;
+    }
+    public bool setArmor(bool value)
+    {
+        armor = value;
+        return armor;
+    }
+    public bool getBullets()
+    {
+        return bullets;
+    }
+    public bool setBullets(bool value)
+    {
+        bullets = value;
+        return bullets;
+    }
+
 }

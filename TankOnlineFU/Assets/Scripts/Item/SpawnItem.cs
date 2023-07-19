@@ -31,18 +31,18 @@ public class SpawnItem : MonoBehaviour
         if (timer.isFinish)
         {
             int rand = Random.Range(1, 11);
-            if (rand < 4)
-            {
+            // if (rand < 5)
+            // {
                 getItem = itArmor;
-            }
-            else if (rand > 3 && rand < 8)
-            {
-                getItem = itSpeedUp;
-            }
-            else
-            {
-                return;
-            }
+            // }
+            // else if (rand>5)
+            // {
+            //     getItem = itSpeedUp;
+            // }
+            // else
+            // {
+            //     return;
+            // }
             GameObject item = Instantiate(this.getItem);
             item.transform.position = new Vector2(Random.Range(-6.3f, 6.3f), Random.Range(-4.3f,4.3f));
             timer.arlarmTime = 15;

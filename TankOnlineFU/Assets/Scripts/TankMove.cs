@@ -10,14 +10,10 @@ public class TankMover : MonoBehaviour
     // Start is called before the first frame update
 
     public float speed;
-    public bool armor = false;
-    public bool bullets; 
     public Bullet bullet ;
     void Start()
     {
         speed = 1;
-        bullets = false;
-
     }
 
     // Update is called once per frame
@@ -50,26 +46,4 @@ public class TankMover : MonoBehaviour
         gameObject.transform.position = currentPos;
         return currentPos;
     }
-
-   /* public void setBu(){
-        bullets = true;
-    }
-    public bool getArmor()
-    {
-        return armor;
-    }
-    public bool setArmor(bool value)
-    {
-        armor = value;
-        return armor;
-    }
-        public bool getBullets()
-    {
-        return bullets;
-    }
-    public bool setBullets(bool value)
-    {
-        bullets = value;
-        return bullets;
-    }*/
 }

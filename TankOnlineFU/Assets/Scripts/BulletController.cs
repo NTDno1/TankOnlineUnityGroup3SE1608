@@ -28,7 +28,7 @@ public class BulletController : MonoBehaviour
 
     private void DestroyAfterRange()
     {
-        Debug.Log(Bullet);
+        // Debug.Log(Bullet);
        var currentPos = gameObject.transform.position;
         var initPos = Bullet.InitialPosition;
        

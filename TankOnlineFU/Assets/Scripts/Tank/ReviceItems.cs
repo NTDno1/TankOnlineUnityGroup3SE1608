@@ -14,11 +14,11 @@ public class ReviceItems : MonoBehaviour
     [Range(0, 10)]
     float speedBlink = 9;
     Renderer ren;
-    TankMover js;
+    TankController js;
     //  BulletCon2 bu;
     void Start()
     {
-        js = FindObjectOfType<TankMover>();
+        js = FindObjectOfType<TankController>();
         // bu = GetBulletCon2Instance();
     }
     // private BulletCon2 GetBulletCon2Instance()
@@ -68,7 +68,7 @@ public class ReviceItems : MonoBehaviour
         }
         //Debug.Log("đây là js"+ js);
     }
-/*    void immortalTime()
+    void immortalTime()
     {
         ReciveItemArmor(false);
         checkArmor = 1;
@@ -83,7 +83,7 @@ public class ReviceItems : MonoBehaviour
         if(js != null){
         js.setBu();
         }
-    }*/
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("bulletEnemy"))
@@ -92,16 +92,16 @@ public class ReviceItems : MonoBehaviour
             {
                 checkArmor = 3;
             }
-            else
-            {
+            // else
+            // {
                 //end game ở đây
                 //Time.timeScale = 0;
-            }
+            // }
         }
-        if (other.gameObject.CompareTag("powerup_grenade"))
-        {
+        // if (other.gameObject.CompareTag("powerup_grenade"))
+        // {
 
-        }
+        // }
     }
 
 }
