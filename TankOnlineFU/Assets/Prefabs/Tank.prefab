@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 711902216727361652}
   - component: {fileID: 5640785620588642713}
   - component: {fileID: 8071155580286939320}
+  - component: {fileID: 5812052547707198746}
+  - component: {fileID: 1604995419802558465}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -35,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1425215670684244316
 SpriteRenderer:
@@ -102,6 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  armor: 0
+  bullets: 0
 --- !u!114 &658675346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7740309687340280598, guid: 1eaa100cee44c4f839e12948bcb5c44a, type: 3}
+  bulletPrefablv2: {fileID: 7740309687340280598, guid: 2729e37aab55fb2438cf321f4777050f, type: 3}
   spriteRight: {fileID: 21300000, guid: 97ce0d674edfe418cabcd19ce0f5b6da, type: 3}
   spriteLeft: {fileID: 21300000, guid: 6783b99fa46ad430680016ebeb8ea713, type: 3}
   spriteUp: {fileID: 21300000, guid: 27a8e2e75693e4e69ade2de1a9ac6ce3, type: 3}
@@ -140,6 +145,8 @@ MonoBehaviour:
   maxRange: 10
   delay: 1
   lastFire: 0
+  armor: 0
+  bulletUp: 1
 --- !u!50 &5640785620588642713
 Rigidbody2D:
   serializedVersion: 4
@@ -155,7 +162,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -212,3 +219,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &5812052547707198746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185695495001854551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8760772ee2b2afa498c6371dc3a4796a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkArmor: 1
+  animation: {fileID: 1464660916379262145, guid: 67141bf36594303419af360167c1cfa1, type: 3}
+--- !u!114 &1604995419802558465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185695495001854551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d8e633de855de42b1db12f97c598d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRunning: 0
+  isFinish: 0
+  elapseTime: 0
+  arlarmTime: 0
