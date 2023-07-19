@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
-      propertyPath: m_LocalPosition.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.59
       objectReference: {fileID: 0}
     - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1072091300885886469, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,14 +60,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Build
       objectReference: {fileID: 0}
+    - target: {fileID: 8071155580286939320, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 658675346, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+    - {fileID: 711902216727361652, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+    - {fileID: 658675345, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2185695495001854551, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 878647671969593021}
+    - targetCorrespondingSourceObject: {fileID: 2185695495001854551, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 608434427554112025}
+    - targetCorrespondingSourceObject: {fileID: 2185695495001854551, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3005587222095151725}
   m_SourcePrefab: {fileID: 100100000, guid: a77168ab521034ef8b7b80b9dd64708e, type: 3}
 --- !u!1 &2751170101793926180 stripped
 GameObject:
@@ -81,14 +93,50 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2751170101793926180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4343d3cd6bbb638479ba2e30fb493a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankUp: {fileID: 0}
-  tankDown: {fileID: 0}
-  tankLeft: {fileID: 0}
-  tankRight: {fileID: 0}
+  tankUp: {fileID: 21300000, guid: c2500d85418f749429defd72247fa182, type: 3}
+  tankDown: {fileID: 21300000, guid: 5961b410be50c40db80d4336eb9ba4f6, type: 3}
+  tankLeft: {fileID: 21300000, guid: 13bdef6e50b2c4a339bafdc7f7f58ff4, type: 3}
+  tankRight: {fileID: 21300000, guid: f59f1eac0661d4c9ba950e0e5d444b6d, type: 3}
+  camera: {fileID: 0}
+  materialEnums: 
+--- !u!114 &608434427554112025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751170101793926180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd452d52fa85a96449f709bc283399b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Water: {fileID: 5332500313351584173, guid: 3b644f49ce16ff045ac24def637bd813, type: 3}
+  Trees: {fileID: 5111572325971587625, guid: 345745c8c3ab269448c7847afc0d4f05, type: 3}
+  WallBrick: {fileID: 1267582701524864711, guid: 9d28f1352ad6bed419675d9211f9ac9f, type: 3}
+  WallSteel: {fileID: 4560437481752989198, guid: 0c24f7459136bf2479dbbcf4923c220e, type: 3}
+  lastBuild: 0
+--- !u!114 &3005587222095151725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751170101793926180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deabfd0959334704690e81a883bf2b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  tankUp: {fileID: 21300000, guid: c2500d85418f749429defd72247fa182, type: 3}
+  tankDown: {fileID: 21300000, guid: 5961b410be50c40db80d4336eb9ba4f6, type: 3}
+  tankLeft: {fileID: 21300000, guid: 13bdef6e50b2c4a339bafdc7f7f58ff4, type: 3}
+  tankRight: {fileID: 21300000, guid: f59f1eac0661d4c9ba950e0e5d444b6d, type: 3}
   camera: {fileID: 0}
   materialEnums: 
